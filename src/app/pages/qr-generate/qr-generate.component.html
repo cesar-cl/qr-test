@@ -1,0 +1,32 @@
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>NOMBRE</th>
+      <th>DNI</th>
+      <th>QR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.dni }}</td>
+      <td>
+        <qrcode
+          [qrdata]="user.dni.toString()"
+          [allowEmptyString]="true"
+          [cssClass]="'center'"
+          [colorDark]="'#000000ff'"
+          [colorLight]="'#ffffffff'"
+          [elementType]="'svg'"
+          [errorCorrectionLevel]="'M'"
+          [margin]="4"
+          [scale]="1"
+          [title]="'dni'"
+          [width]="250"
+        ></qrcode>
+      </td>
+    </tr>
+  </tbody>
+</table>

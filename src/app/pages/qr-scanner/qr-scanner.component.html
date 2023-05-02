@@ -1,0 +1,12 @@
+<div *ngIf="!scannerEnabled && result !== ''">El resultado es {{ result }}</div>
+
+<div *ngIf="!scannerEnabled">
+  <button (click)="changeState()">iniciar lectura</button>
+</div>
+
+<zxing-scanner
+  [formats]="allowedFormats"
+  [enable]="scannerEnabled"
+  (camerasFound)="camerasFoundHandler($event)"
+  (scanSuccess)="scanSuccessHandler($event)"
+></zxing-scanner>
